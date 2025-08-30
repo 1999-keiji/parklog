@@ -14,8 +14,8 @@ export function ParkingStatus({ status }: ParkingStatusProps) {
     if (!isCurrentlyParked) {
       return {
         icon: <Car className="w-6 h-6 text-gray-500" />,
-        title: 'バイク未駐車',
-        message: '現在バイクは駐車されていません',
+        title: '未駐車',
+        message: '現在は駐車されていません',
         bgColor: 'bg-gray-50',
         borderColor: 'border-gray-200',
         textColor: 'text-gray-800'
@@ -57,7 +57,7 @@ export function ParkingStatus({ status }: ParkingStatusProps) {
 
     return {
       icon: <CheckCircle className="w-6 h-6 text-green-500" />,
-      title: 'バイク駐車中',
+      title: '駐車中',
       message: `支払い期限まであと${hoursUntilDue}時間`,
       bgColor: 'bg-green-50',
       borderColor: 'border-green-200',

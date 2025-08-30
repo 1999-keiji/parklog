@@ -11,7 +11,7 @@ export function useNotifications(status: ParkingStatus) {
       if ('Notification' in window && Notification.permission === 'granted') {
         // Overdue notification
         if (isOverdue) {
-          new Notification('🚨 バイク駐車期限超過！', {
+          new Notification('🚨 駐車期限超過！', {
             body: `支払い期限を${Math.abs(hoursUntilDue)}時間超過しています。至急対応が必要です。`,
             icon: '/bike-icon-192.png',
             tag: 'overdue'
@@ -19,7 +19,7 @@ export function useNotifications(status: ParkingStatus) {
         }
         // 2 hours before due
         else if (hoursUntilDue <= 2 && hoursUntilDue > 0) {
-          new Notification('⚠️ バイク駐車期限まもなく！', {
+          new Notification('⚠️ 駐車期限まもなく！', {
             body: `支払い期限まであと${hoursUntilDue}時間です。`,
             icon: '/bike-icon-192.png',
             tag: 'urgent'
@@ -27,7 +27,7 @@ export function useNotifications(status: ParkingStatus) {
         }
         // 24 hours before due (1 day)
         else if (hoursUntilDue <= 24 && hoursUntilDue > 2) {
-          new Notification('📅 バイク駐車期限通知', {
+          new Notification('📅 駐車期限通知', {
             body: `支払い期限まであと${hoursUntilDue}時間です。`,
             icon: '/bike-icon-192.png',
             tag: 'reminder'

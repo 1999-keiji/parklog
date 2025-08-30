@@ -34,30 +34,28 @@ export function ParkingModal({
 
   const handleEntrySubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const isoDateTime = new Date(dateTime).toISOString();
-    onSaveEntry(isoDateTime);
+    onSaveEntry(dateTime);
     onClose();
     setAmount('');
   };
 
   const handleExitSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const isoDateTime = new Date(dateTime).toISOString();
-    onSaveExit(isoDateTime, amount ? parseInt(amount) : undefined);
+    onSaveExit(dateTime, amount ? parseInt(amount) : undefined);
     onClose();
     setAmount('');
   };
 
   const handleQuickEntry = () => {
-    const now = new Date().toISOString();
-    onSaveEntry(now);
+    // フォームに入力された日時を使用
+    onSaveEntry(dateTime);
     onClose();
     setAmount('');
   };
 
   const handleQuickExit = () => {
-    const now = new Date().toISOString();
-    onSaveExit(now);
+    // フォームに入力された日時と金額を使用
+    onSaveExit(dateTime, amount ? parseInt(amount) : undefined);
     onClose();
     setAmount('');
   };
@@ -70,7 +68,7 @@ export function ParkingModal({
         {/* Header */}
         <div className="flex items-center justify-between p-6 border-b border-gray-200">
           <h2 className="text-xl font-semibold text-gray-900">
-            {isCurrentlyParked ? 'バイク出庫記録' : 'バイク入車記録'}
+            {isCurrentlyParked ? '出庫記録' : '入車記録'}
           </h2>
           <button
             onClick={onClose}

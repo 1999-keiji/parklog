@@ -1,7 +1,7 @@
 {
-  "name": "バイク駐車場管理",
-  "short_name": "バイク駐車場",
-  "description": "バイク駐車場の支払いサイクルを管理するアプリ",
+  "name": "Parklog",
+  "short_name": "Parklog",
+  "description": "駐車場の支払いサイクルを管理するアプリ",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",
