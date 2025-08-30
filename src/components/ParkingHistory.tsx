@@ -87,11 +87,24 @@ export function ParkingHistory({ records, onRemoveRecord }: ParkingHistoryProps)
                 
                 {/* Exit Info */}
                 {record.exitTime ? (
-                  <div className="flex items-center gap-2 mb-2">
-                    <LogOut className="w-4 h-4 text-red-600" />
-                    <div>
-                      <p className="font-medium text-gray-800 text-sm">
-                        出庫: {formatDisplayDateTime(record.exitTime)}
+                  <div>
+                    <div className="flex items-center gap-2 mb-2">
+                      <LogOut className="w-4 h-4 text-red-600" />
+                      <div>
+                        <p className="font-medium text-gray-800 text-sm">
+                          出庫: {formatDisplayDateTime(record.exitTime)}
+                        </p>
+                      </div>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      {record.paymentAmount && (
+                        <p className="text-xs text-gray-500">
+                          支払い金額: ¥{record.paymentAmount.toLocaleString()}
+                        </p>
+                      )}
+                      <Clock className="w-4 h-4 text-gray-400" />
+                      <p className="text-xs text-gray-500">
+                        駐車時間: {calculateDuration(record)}
                       </p>
                     </div>
                   </div>
@@ -100,32 +113,7 @@ export function ParkingHistory({ records, onRemoveRecord }: ParkingHistoryProps)
                     <Clock className="w-4 h-4 text-blue-600" />
                     <p className="text-sm text-blue-600 font-medium">駐車中</p>
                   </div>
-                )}
-                
-                {/* Payment Amount - より目立つように表示 */}
-                {/* {record.paymentAmount && (
-                  <div className="flex items-center gap-2 mb-2">
-                    <DollarSign className="w-4 h-4 text-green-600" />
-                    <p className="font-medium text-green-700 text-sm">
-                      支払い金額: ¥{record.paymentAmount.toLocaleString()}
-                    </p>
-                  </div>
-                )} */}
-                
-                {/* Duration */}
-              
-                <div className="flex items-center gap-2">
-                  {record.paymentAmount && (
-                    <p className="text-xs text-gray-500">
-                      支払い金額: ¥{record.paymentAmount.toLocaleString()}
-                    </p>
-                  )}
-                  <Clock className="w-4 h-4 text-gray-400" />
-                  <p className="text-xs text-gray-500">
-                    駐車時間: {calculateDuration(record)}
-                  </p>
-                </div>
-                
+                )}          
               </div>
               
               <button
