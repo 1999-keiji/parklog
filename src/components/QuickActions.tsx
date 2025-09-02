@@ -19,7 +19,7 @@ export function QuickActions({ onEntry, onExit, isCurrentlyParked }: QuickAction
             className="w-full flex items-center justify-center gap-3 bg-blue-500 text-white px-6 py-4 rounded-xl font-medium hover:bg-blue-600 transition-colors text-lg touch-manipulation"
           >
             <LogIn className="w-5 h-5" />
-            バイク入車記録
+            入車記録
           </button>
         ) : (
           <button
@@ -27,7 +27,7 @@ export function QuickActions({ onEntry, onExit, isCurrentlyParked }: QuickAction
             className="w-full flex items-center justify-center gap-3 bg-red-500 text-white px-6 py-4 rounded-xl font-medium hover:bg-red-600 transition-colors text-lg touch-manipulation"
           >
             <LogOut className="w-5 h-5" />
-            バイク出庫記録
+            出庫記録
           </button>
         )}
       </div>

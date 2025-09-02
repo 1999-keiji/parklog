@@ -38,7 +38,13 @@ export function useParking(maxHours: number = DEFAULT_MAX_HOURS) {
   }, [records]);
 
   const recordEntry = (entryTime?: string) => {
-    const entryDateTime = entryTime || formatDateTime(new Date());
+    // フォームから渡された日時がある場合はそれを使用し、ない場合のみ現在時刻を使用
+    let entryDateTime: string;
+    if (entryTime) {
+      entryDateTime = entryTime;
+    } else {
+      entryDateTime = formatDateTime(new Date());
+    }
     const newRecord: ParkingRecord = {
       id: generateId(),
       entryTime: entryDateTime,

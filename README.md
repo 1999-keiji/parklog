@@ -21,8 +21,8 @@
 
 1. **リポジトリのクローン**
    ```bash
-   git clone <repository-url>
-   cd bike-parking-management
+   git clone https://github.com/1999-keiji/parklog.git
+   cd parklog
    ```
 
 2. **依存関係のインストール**
@@ -108,7 +108,3 @@ src/
 ├── main.tsx            # エントリーポイント
 └── index.css           # グローバルスタイル
 ```
-
-## ライセンス
-
-MIT License
